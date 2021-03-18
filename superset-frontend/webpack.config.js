@@ -314,6 +314,12 @@ const config = {
     noParse: /(mapbox-gl)\.js$/,
     rules: [
       {
+        test: /\.(js|jsx)$/,
+        include: path.resolve(__dirname, 'src'),
+        exclude: /(node_modules|bower_components|build)/,
+        use: ['babel-loader'],
+      },
+      {
         test: /datatables\.net.*/,
         loader: 'imports-loader?define=>false',
       },
