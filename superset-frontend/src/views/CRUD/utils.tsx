@@ -166,6 +166,10 @@ export function createErrorHandler(
   return async (e: SupersetClientResponse | string) => {
     const parsedError = await getClientErrorObject(e);
     logging.error(e);
+    // navigate to log in page if the error is related to authorization
+    if (parsedError.msg?.toLowerCase().includes('authorization')) {
+      window.location.href = 'login';
+    }
     handleErrorFunc(parsedError.message || parsedError.error);
   };
 }
