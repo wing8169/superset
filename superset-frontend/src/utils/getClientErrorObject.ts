@@ -34,6 +34,7 @@ export type ClientErrorObject = {
   message?: string;
   severity?: string;
   stacktrace?: string;
+  msg?: string;
 } & Partial<SupersetClientResponse>;
 
 interface ResponseWithTimeout extends Response {
